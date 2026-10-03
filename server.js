@@ -109,9 +109,7 @@ app.post("/webhooks/whatsapp", (req, res) => {
   res.sendStatus(200);
 });
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
-});
+app.use((req, res) => { res.sendFile(path.join(__dirname, “public”, “index.html));
 
 app.listen(PORT, () => {
   console.log(`NOVA running on port ${PORT}`);
